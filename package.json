@@ -1,0 +1,38 @@
+{
+  "name": "tuspe-movies",
+  "version": "1.0.0",
+  "homepage": "https://movies.tuspe.com",
+  "bugs": "https://github.com/TuspeDesign/Svelte-Movies",
+  "license": "GNU GPL",
+  "author": {
+    "name": "Timo Anttila",
+    "email": "moro@tuspe.com",
+    "url": "https://timoanttila.com"
+  },
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview",
+    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^1.0.0-next.20",
+    "@sveltejs/kit": "next",
+    "autoprefixer": "^10.3.7",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-svelte3": "^3.2.1",
+    "postcss": "^8.3.9",
+    "prettier": "^2.4.1",
+    "prettier-plugin-svelte": "^2.4.0",
+    "svelte": "^3.44.0",
+    "svelte-preprocess": "^4.9.8",
+    "tailwindcss": "^2.2.17"
+  },
+  "type": "module",
+  "dependencies": {
+    "luxon": "^2.0.2",
+    "svelte-hmr": "^0.14.7"
+  }
+}
