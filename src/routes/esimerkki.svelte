@@ -2,10 +2,8 @@
 	import { postData } from "$lib/store";
 	import { onMount } from "svelte";
 	import Image from "../components/image.svelte";
-
 	// Tänne kerätään dataa
 	let data = [];
-
 	// onMount ladataan kerran kun sivu / komponentti ladataan
 	onMount(async () => {
 		postData("news&limit=4").then(function (result) {
