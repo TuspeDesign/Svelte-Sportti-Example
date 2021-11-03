@@ -4,24 +4,24 @@
 	import Image from "../components/image.svelte";
 
 	// Tänne kerätään dataa
-	let data = [];
+	let products = [];
 
 	// onMount ladataan kerran kun sivu / komponentti ladataan
 	onMount(async () => {
-		postData("product").then(function (result) {
+		postData("products&imageWidth=348&imageHeight=420").then(function (result) {
 			data = result;
 		});
 	});
 </script>
 
-{#if data && data[0]}
+{#if products && products[0]}
 	<ul class="grid grid-cols-3 gap-6">
-		{#each data as item}
+		{#each products as item}
 			<li>
 				<a
 					class="news rounded-b-md overlay-hidden"
 					href={"/kauppa/" + item.id}
-					title={"Product: " + item.title}
+					title={"kauppa" + item.title}
 					rel="prefetch"
 				>
 					<figure>

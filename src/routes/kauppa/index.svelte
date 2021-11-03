@@ -1,33 +1,33 @@
 <script>
 	import { postData } from "$lib/store";
 	import { onMount } from "svelte";
-	import Image from "../components/image.svelte";
+	import Image from "../../components/image.svelte";
 
 	// Tänne kerätään dataa
-	let data = [];
+	let products = [];
 
 	// onMount ladataan kerran kun sivu / komponentti ladataan
 	onMount(async () => {
-		postData("news&limit=4").then(function (result) {
+		postData("products&imageWidth=348&imageHeight=420").then(function (result) {
 			data = result;
 		});
 	});
 </script>
 
-{#if data && data[0]}
+{#if products && products[0]}
 	<ul class="grid grid-cols-3 gap-6">
-		{#each data as item}
+		{#each products as item}
 			<li>
 				<a
 					class="news rounded-b-md overlay-hidden"
-					href={"/uutiset/" + item.id}
-					title={"Uutinen: " + item.title}
+					href={"/kauppa/" + item.id}
+					title={"kauppa" + item.title}
 					rel="prefetch"
 				>
 					<figure>
 						<Image img={item.images[0]} alt={item.title} />
 						<figcaption
-							class="py-5 text-white text-lg italic leading-snug"
+							class="py-5 text-black text-lg italic leading-snug"
 						>
 							<strong>
 								{item.created} - {item.title}
