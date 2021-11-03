@@ -21,7 +21,12 @@
 		{#each data as item}
 			<div style="width:100%;text-align:center;">
 				<li>
-					<a href={'/' + item.id}>
+					<a
+						class="news rounded-b-md overlay-hidden"
+						href={'/uutiset/' + item.id}
+						title={"Uutinen: " + item.title}
+						rel="prefetch"	
+					>
 						<figure>
 							<Image img={item.images[0]} alt={item.title} />
 							<figcaption
@@ -54,12 +59,11 @@
 	width: 50%;
 	margin-top: 5rem;
 }
-
 	header{
-		margin-left: 320px;
-		margin-right: 320px;
-		font-size: xx-large;
-		font-style: italic;
-		margin-bottom: 5rem;
+	margin-left: 320px;
+	margin-right: 320px;
+	font-size: xx-large;
+	font-style: italic;
+	margin-bottom: 5rem;
 	}
 </style>
