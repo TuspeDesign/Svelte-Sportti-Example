@@ -56,9 +56,9 @@
 }
 
 	header{
-		margin-left: 350px;
-		margin-right: 350px;
-		font-size: x-large;
+		margin-left: 320px;
+		margin-right: 320px;
+		font-size: xx-large;
 		font-style: italic;
 		margin-bottom: 5rem;
 	}
