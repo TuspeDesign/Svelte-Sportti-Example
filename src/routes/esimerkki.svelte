@@ -8,7 +8,7 @@
 
 	// onMount ladataan kerran kun sivu / komponentti ladataan
 	onMount(async () => {
-		postData("news&limit=4").then(function (result) {
+		postData("product").then(function (result) {
 			data = result;
 		});
 	});
@@ -20,14 +20,14 @@
 			<li>
 				<a
 					class="news rounded-b-md overlay-hidden"
-					href={"/uutiset/" + item.id}
-					title={"Uutinen: " + item.title}
+					href={"/kauppa/" + item.id}
+					title={"Product: " + item.title}
 					rel="prefetch"
 				>
 					<figure>
 						<Image img={item.images[0]} alt={item.title} />
 						<figcaption
-							class="py-5 text-white text-lg italic leading-snug"
+							class="py-5 text-black text-lg italic leading-snug"
 						>
 							<strong>
 								{item.created} - {item.title}
