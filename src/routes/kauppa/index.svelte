@@ -9,10 +9,12 @@
 
 	// onMount ladataan kerran kun sivu / komponentti ladataan
 	onMount(async () => {
-		postData("products&imageWidth=348&imageHeight=420").then(function (result) {
+		postData("products").then(function (result) {
 			products = result;
 		});
 	});
+
+	
 
 	onMount(async () => {
 		postData("priceCurrent").then(function (result) {
@@ -49,14 +51,14 @@
 	</ul>
 {/if}
 
-{#if priceCurrent && priceCurrent[0]}
+{#if products.items && products.items[0]}
 	<ul class="grid grid-cols-3 gap-6">
-		{#each priceCurrent as item}
+		{#each products.items as item}
 			<li>
 				<a
 					class="news rounded-b-md overlay-hidden"
 					href={"/kauppa/" + item.id}
-					title={"priceCurrent" + item.title}
+					title={"kauppa" + item.title}
 					rel="prefetch"
 				>
 					<figure>
@@ -74,4 +76,3 @@
 		{/each}
 	</ul>
 {/if}
-
