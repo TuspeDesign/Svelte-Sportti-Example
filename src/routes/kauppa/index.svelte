@@ -9,21 +9,59 @@
 
 	// onMount ladataan kerran kun sivu / komponentti ladataan
 	onMount(async () => {
-		postData("products").then(function (result) {
+		postData("products&imageWidth=348&imageHeight=420").then(function (result) {
 			products = result;
 		});
 	});
 
 	
-
 	onMount(async () => {
 		postData("priceCurrent").then(function (result) {
 			priceCurrent = result;
 		});
 	});
 
+
+	
+
 	
 </script>
+
+
+
+
+
+<style>
+ button {
+        display: inline-block;
+        background-color: #000000;
+        border-radius: 10px;
+        border: 2px double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 28px;
+        padding: 15px;
+        width: 200px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        cursor: crosshair;
+        margin: 5px;
+	
+      }
+</style>
+
+
+
+
+ <button id="nappi" onclick="console.log('MOI')">KLIKKAA MINUA</button>
+
+
+
+
+
+
 
 {#if products.items && products.items[0]}
 	<ul class="grid grid-cols-3 gap-6">
@@ -51,9 +89,9 @@
 	</ul>
 {/if}
 
-{#if products.items && products.items[0]}
+{#if priceCurrent && priceCurrent[0]}
 	<ul class="grid grid-cols-3 gap-6">
-		{#each products.items as item}
+		{#each priceCurrent as item}
 			<li>
 				<a
 					class="news rounded-b-md overlay-hidden"
