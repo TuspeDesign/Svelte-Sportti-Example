@@ -10,11 +10,22 @@
 			data = result;
 		});
 	});
+
+	function handleClick(){
+		console.log('Moi');
+	}
+
 </script>
 
 <div class="content">
 
 <header>Ajankohtaista</header>
+
+<button class="bg-black text-white px-4 py-2"> 
+	<button 
+		on:click={handleClick}>Klikkaa minua
+	</button>
+</button>
 
 {#if data && data[0]}
 	<ul class="grid grid-cols-1 gap-6">
