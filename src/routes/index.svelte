@@ -6,6 +6,7 @@
 	// Tänne kerätään dataa
 	let news = [];
 	let videos = [];
+	let games = [];
 
 	// onMount ladataan kerran kun sivu / komponentti ladataan
 	onMount(async () => {
@@ -36,7 +37,6 @@
 						<figcaption
 							class="py-5 text-grey text-lg italic leading-snug"
 						>
-					
 							<strong>
 								{item.created} - {item.title}
 							</strong>
@@ -54,17 +54,17 @@
 			<li>
 				<a
 					class="news overlay-hidden"
-					href={"/uutiset/" + Item.id}
-					title={"Uutinen: " + Item.title}
+					href={"/videot/" + item.id}
+					title={"Videot: " + item.title}
 					rel="prefetch"
 				>
 					<figure>
-						<Image img={Item.images[0]} alt={Item.title} />
+<Image img={item.images[0]} alt={item.title} />
 						<figcaption
 							class="py-5 text-grey text-lg italic leading-snug"
 						>
 							<strong>
-								{Item.created} - {Item.title}
+								{item.created} - {item.title}
 							</strong>
 						</figcaption>
 					</figure>
@@ -72,4 +72,33 @@
 			</li>
 		{/each}
 	</ul>
-	{/if}
+{/if}
+
+{#if games && games [0]}
+<h2>Tulevat pelit</h2>
+<ul>
+	{#each games as item}
+	<li>
+		<div class="grid grid/cols-2 gap-6">
+			<div>
+				<Image 
+				img={item.homeTeam.logo}
+				alt={item.homeTeam.name}
+				/>
+				<div>{item.homeTeam.name}</div>
+			</div>
+
+			<div>Alkaa<br />{item.time}</div>
+
+			<div>
+				<Image
+					img={item.awayTeam.logo}
+					alt={item.awayTeam.name}
+				/>
+				<div>{item.awayTeam.name}</div>
+			</div>
+		</div>
+	</li>
+{/each}
+</ul>
+{/if}
