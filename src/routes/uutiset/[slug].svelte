@@ -16,22 +16,20 @@
 </script>
 
 {#if data && data.id}
-    <div id="images">
+<div class="mx-auto max-w-screen-lg">
 
-        {#each data.images as item}
+	<div id="images">
+    	{#each data.images as item}
 			<Image img={item} alt={data.title}/>		  
-        {/each}
-    </div>
+    	{/each}
+	</div>
 
-    <div class="content">{@html data.content}</div>
+	<div class="content">{@html data.content}</div>
+</div>
 {/if}
 
 <style scoped>
 	.content{
-	display: block;
-	margin-left: 750px;
-	margin-right: 750px;
-	width: 50%;
 	margin-top: 5rem;
 	margin-bottom: 5rem;
 }
